@@ -24,3 +24,11 @@ FitConnect is a fitness logger and social media website where users can post the
 - User has many workouts through posts
 - Workout has many users through posts
 - Post belongs to a workout and a user
+
+## Validations
+
+- A user must be 16 years or older
+- Username must exist
+- Username must be unique
+- A post has a workout and a user
+- Workout has a name
