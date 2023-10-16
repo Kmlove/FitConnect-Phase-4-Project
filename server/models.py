@@ -1,10 +1,15 @@
-from sqlalchemy_serializer import SerializerMixin
-from sqlalchemy.ext.associationproxy import association_proxy
+# from sqlalchemy_serializer import SerializerMixin
+# from sqlalchemy.ext.associationproxy import association_proxy
 
+# from sqlalchemy.orm import validates
+# from config import *
+
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import MetaData
 from sqlalchemy.orm import validates
-from config import db
+from sqlalchemy.ext.associationproxy import association_proxy
+from sqlalchemy_serializer import SerializerMixin
 
-# Models go here!
 convention = {
     "ix": "ix_%(column_0_label)s",
     "uq": "uq_%(table_name)s_%(column_0_name)s",
@@ -12,6 +17,13 @@ convention = {
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
     "pk": "pk_%(table_name)s"
 }
+
+metadata = MetaData(naming_convention=convention)
+
+db = SQLAlchemy(metadata=metadata)
+
+# Models go here!
+
 
 class Workout(db.Model, SerializerMixin):
     __tablename__ = 'workouts'
@@ -30,9 +42,9 @@ class Workout(db.Model, SerializerMixin):
     set_3_reps = db.Column(db.Integer)
 
 
-    posts = db.relationship('WorkoutPost', back_populates='workout')
+    workout_posts = db.relationship('WorkoutPost', backref='workout', cascade="all, delete-orphan")
     
-    serialize_rules = ('-posts.workout',)
+    serialize_rules = ('-workout_posts.workout',)
 
     @validates('name')
     def validate_name(self, key, name):
@@ -63,9 +75,9 @@ class User(db.Model, SerializerMixin):
     password = db.Column(db.String)
     age = db.Column(db.Integer)
 
-    posts = db.relationship('WorkoutPost', back_populates='user')
+    workout_posts = db.relationship('WorkoutPost', backref='user', cascade="all, delete-orphan")
 
-    serialize_rules = ('-posts.user',)
+    serialize_rules = ('-workout_posts.user',)
 
     @validates('username')
     def validate_username(self, key, username):
@@ -81,22 +93,19 @@ class User(db.Model, SerializerMixin):
 
 
 class WorkoutPost(db.Model, SerializerMixin):
-    __tablename__ = 'post'
+    __tablename__ = 'workout_posts'
 
     id = db.Column(db.Integer, primary_key=True)
     comments = db.Column(db.String)
-    exercise_key = db.Column(db.Integer, db.ForeignKey('workouts.id'))
-    user_key = db.Column(db.Integer, db.ForeignKey('users.id'))
+    workout_id = db.Column(db.Integer, db.ForeignKey('workouts.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
-    workout = db.relationship('Workout', back_populates='posts')
-    user = db.relationship('User', back_populates='posts')
+    serialize_rules = ('-user.workout_posts', '-workout.workout_posts')
 
-    serialize_rules = ('-user.posts', 'workout.posts')
-
-    @validates('exercise_key')
-    def validate_exercise(self, key, exercise_key):
-        if not exercise_key:
-            raise ValueError("Exercise key must be present")
+    @validates('workout_key')
+    def validate_workout(self, key, workout_key):
+        if not workout_key:
+            raise ValueError("Workout key must be present")
 
     @validates('user_key')
     def validate_user(self, key, user_key):
