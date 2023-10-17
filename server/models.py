@@ -111,4 +111,3 @@ class WorkoutPost(db.Model, SerializerMixin):
     def validate_user(self, key, user_key):
         if not user_key:
             raise ValueError("User key must be present")
-        
