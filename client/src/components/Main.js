@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Profile from './Profile';
+import PostsMainPage from './PostsMainPage';
 
 function Main() {
   const [users, setUsers] = useState([]);
@@ -21,33 +22,28 @@ function Main() {
       .catch((error) => console.error('Error fetching posts:', error));
   }, []);
   
+  function handleAddPost(new_post){
+    setPosts([...posts, new_post])
+  }
+
   return (
     <div>
-      <h1>Users</h1>
-      <Profile imageURL={"*"} name={users}/>
-    
+      
+      <Profile users={users}/>
+
+      <h1>Workouts</h1>
       <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            <strong>Username:</strong> {user.username}
+        {workouts.map((workout) => (
+          <li key={workout.id}>
+            <strong>Name:</strong> {workout.name}
             <br />
-            <strong>Age:</strong> {user.age}
+            <strong>Type:</strong> {workout.type}
           </li>
         ))}
       </ul>
 
-      <h1>Posts</h1>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <strong>Comments:</strong> {post.comments}
-            <br />
-            <strong>Workout ID:</strong> {post.workout_id}
-            <br />
-            <strong>User ID:</strong> {post.user_id}
-          </li>
-        ))}
-      </ul>
+      <PostsMainPage users={users} workouts={workouts} posts={posts} handleAddPost={handleAddPost}/>
+      
     </div>
   );
 }
