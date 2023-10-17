@@ -2,17 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Profile from './Profile';
 
 function Main() {
-  const [workouts, setWorkouts] = useState([]);
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
-
-  // Fetch workouts data
-  useEffect(() => {
-    fetch('/workouts')
-      .then((res) => res.json())
-      .then((data) => setWorkouts(data))
-      .catch((error) => console.error('Error fetching workouts:', error));
-  }, []);
 
   // Fetch users data
   useEffect(() => {
@@ -41,17 +32,6 @@ function Main() {
             <strong>Username:</strong> {user.username}
             <br />
             <strong>Age:</strong> {user.age}
-          </li>
-        ))}
-      </ul>
-
-      <h1>Workouts</h1>
-      <ul>
-        {workouts.map((workout) => (
-          <li key={workout.id}>
-            <strong>Name:</strong> {workout.name}
-            <br />
-            <strong>Type:</strong> {workout.type}
           </li>
         ))}
       </ul>
