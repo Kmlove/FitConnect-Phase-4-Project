@@ -31,7 +31,11 @@ db.init_app(app)
 
 api = Api(app)
 
-# Add your model imports
+# Views go here!
+@app.route('/')
+def index():
+    return '<h1>Project Server</h1>'
+
 class Workouts(Resource):
     def get(self):
         workouts = [workout.to_dict(rules = ("-workout_posts",)) for workout in Workout.query.all()]
@@ -189,23 +193,5 @@ class WorkoutPostsById(Resource):
         return make_response({}, 204)
 api.add_resource(WorkoutPostsById, '/posts/<int:id>')
 
-
-
-    
-    
-
-
-
-
-
-
-# Views go here!
-
-@app.route('/')
-def index():
-    return '<h1>Project Server</h1>'
-
-
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
-

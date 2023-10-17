@@ -24,7 +24,6 @@ db = SQLAlchemy(metadata=metadata)
 
 # Models go here!
 
-
 class Workout(db.Model, SerializerMixin):
     __tablename__ = 'workouts'
 
@@ -40,7 +39,6 @@ class Workout(db.Model, SerializerMixin):
     set_3_name = db.Column(db.String)
     set_3_sets = db.Column(db.Integer)
     set_3_reps = db.Column(db.Integer)
-
 
     workout_posts = db.relationship('WorkoutPost', backref='workout', cascade="all, delete-orphan")
     
@@ -63,9 +61,7 @@ class Workout(db.Model, SerializerMixin):
         elif key == 'set_1_reps':
             if not value:
                 raise ValueError("Reps must be present")
-        return value
-    
-    
+        return value   
 
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
@@ -90,7 +86,6 @@ class User(db.Model, SerializerMixin):
         if age < 16:
             raise ValueError("Age must be 16 or older")
         return age
-
 
 class WorkoutPost(db.Model, SerializerMixin):
     __tablename__ = 'workout_posts'
