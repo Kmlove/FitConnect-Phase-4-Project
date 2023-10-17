@@ -37,10 +37,14 @@ function Main() {
   }
 
   return (
-    <div>
-      <Profile users={users}/>
-      <Workouts workouts={workouts} posts={posts}/>
-      <PostsMainPage users={users} workouts={workouts} posts={posts} handleAddPost={handleAddPost}/>
+    <div id="mainContainer">
+      <div id="mainLeft">
+        <Profile users={users}/>
+        <Workouts workouts={workouts} posts={posts}/>
+      </div>
+      <div id="mainRight">
+        <PostsMainPage users={users} workouts={workouts} posts={posts} handleAddPost={handleAddPost}/>
+      </div>
     </div>
   );
 }

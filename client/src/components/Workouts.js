@@ -12,7 +12,7 @@ function Workouts({workouts, posts}) {
     return <h3>Loading...</h3>
   } else {
       return (
-        <div>
+        <div id="workoutsContainerDiv">
           <h2>Workouts:</h2>
           <ul>
             {workouts.map((workout) => (

@@ -4,7 +4,7 @@ import PostList from "./PostList"
 function PostsMainPage({posts, workouts, users, handleAddPost}){
 
     return(
-        <div>
+        <div id="postsMainPageContainerDiv">
             <h1>Add a Post:</h1>
             <PostForm users={users} workouts={workouts} handleAddPost={handleAddPost}/>
             <h1>Posts</h1>
