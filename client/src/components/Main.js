@@ -3,7 +3,8 @@ import Profile from './Profile';
 import PostsMainPage from './PostsMainPage';
 import Workouts from './Workouts';
 
-function Main({user}) {
+
+function Main({user,setUser}) {
   // const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   const [workouts, setWorkouts] = useState([]);
@@ -48,22 +49,26 @@ function Main({user}) {
     postsToDisplay = posts.filter((post) => post.workout_id === selectedWorkout.id)
   }
 
+  const handleLogout = () => {
+      setUser(null);
+  };
+
   return (
     <div id="mainContainer">
       <div id="mainLeft">
-        <Profile user={user}/>
-        <Workouts 
-          workouts={workouts} 
-          selectedWorkout={selectedWorkout} 
+        <Profile user={user} onLogout={handleLogout} />
+        <Workouts
+          workouts={workouts}
+          selectedWorkout={selectedWorkout}
           handleChangeSelectedWorkout={handleChangeSelectedWorkout}
         />
       </div>
       <div id="mainRight">
-        <PostsMainPage 
-          user={user} 
-          workouts={workouts} 
-          posts={postsToDisplay} 
-          handleAddPost={handleAddPost} 
+        <PostsMainPage
+          user={user}
+          workouts={workouts}
+          posts={posts}
+          handleAddPost={handleAddPost}
           selectedWorkout={selectedWorkout}
           handleChangeSelectedWorkout={handleChangeSelectedWorkout}
         />
