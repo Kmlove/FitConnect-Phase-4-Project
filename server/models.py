@@ -118,10 +118,19 @@ class WorkoutPost(db.Model, SerializerMixin):
 
     @validates('workout_key')
     def validate_workout(self, key, workout_key):
-        if not workout_key:
+        if not workout_key or workout_key < 1:
             raise ValueError("Workout key must be present")
+        return workout_key
 
     @validates('user_key')
     def validate_user(self, key, user_key):
-        if not user_key:
+        if not user_key or user_key < 1:
             raise ValueError("User key must be present")
+        return user_key
+        
+    @validates('comments')
+    def validate_comments(self, key, comments):
+        if not comments or len(comments) < 1:
+            raise ValueError("Comment must be present")
+        else:
+            return comments

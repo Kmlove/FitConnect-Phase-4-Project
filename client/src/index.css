@@ -135,6 +135,9 @@
 }
 
 .post-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #f5f5f5;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -146,6 +149,27 @@
 .post-list-item strong {
     color: rgb(206, 123, 114); /* Style the "strong" text in a different color */
     font-weight: bold;
+}
+
+#post-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.post-delete-button, .post-edit-button {
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(196, 94, 83);
+    border-color: rgb(196, 94, 83);
+    border-radius: 5px;
+}
+
+.post-delete-button:hover, .post-edit-button:hover {
+    cursor: pointer;
+    background-color: rgb(206, 123, 114);
 }
 
 /* Workout styles */
@@ -206,9 +230,19 @@
     font-weight: bold;
     color: rgb(196, 94, 83);
 }
+
+.edit-form-textarea {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+}
   
 /* -------------------LOGIN/SIGNUP------------------ */
-
 .login-signup-page {
     background-image: linear-gradient(to right bottom, #defced, #caf6f3, #beeffb, #bfe5ff, #cbd8ff, #d2d5fe, #d9d2fd, #e1cffa, #dbd7fe, #d8deff, #d7e5ff, #daebff);
     height: 100vh;

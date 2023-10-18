@@ -10,8 +10,7 @@ function PostForm({workouts, user, handleAddPost}){
     if (user.length === 0){
         return  <h3>Loading...</h3>
     } else{
-        const currUser = user
-        const {age, id,  username } = currUser
+        const {age, id, username } = user
 
         function handleChange(e){
             const { name, value } = e.target;
