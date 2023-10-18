@@ -1,22 +1,23 @@
 import Blank from '../Images/HeadshotBlank.jpg'
 
-function Profile({users}){
-    if (users.length === 0){
-        return  <h3>Loading...</h3>
-    } else{
-        const currUser = users[0]
-        const {age, id, password, username } = currUser
+function Profile({user}){
+    // if (user.length === 0){
+    //     return  <h3>Loading...</h3>
+    // } else{
+    //     const currUser = user
+    //     const {age, id, username } = currUser
     
-        const imageURL = "/client/src/Images/HeadshotBlank.jpg"
+    //     const imageURL = "/client/src/Images/HeadshotBlank.jpg"
+        console.log(user)
         
         return (
             <div id="profileContainerDiv">
-                <img id="headshot" src={Blank} alt={`Image of ${username}`}/>
-                <h2>{username}</h2>
-                <h3>Age: {age}</h3>
+                <img id="headshot" src={Blank} alt={`Image of ${user.username}`}/>
+                <h2>{user.username}</h2>
+                <h3>Age: {user.age}</h3>
             </div>
         )
-    }
+    
 
 }
 

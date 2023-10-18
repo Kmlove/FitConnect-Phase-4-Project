@@ -2,14 +2,14 @@ import PostForm from "./PostForm"
 import PostList from "./PostList"
 import SelectedWorkout from "./SelectedWorkout"
 
-function PostsMainPage({posts, workouts, users, handleAddPost, selectedWorkout, handleChangeSelectedWorkout}){
+function PostsMainPage({posts, workouts, user, handleAddPost, selectedWorkout, handleChangeSelectedWorkout}){
     const workoutName = selectedWorkout ? posts[0].workout.name : "All"
 
     return(
         <div id="postsMainPageContainerDiv">
             <h1 className="section-headers">Add a Post:</h1>
             <PostForm 
-                users={users} 
+                user={user} 
                 workouts={workouts} 
                 handleAddPost={handleAddPost}
             />

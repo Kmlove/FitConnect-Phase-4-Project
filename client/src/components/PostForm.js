@@ -1,17 +1,17 @@
 import {useState} from "react";
 
-function PostForm({workouts, users, handleAddPost}){
+function PostForm({workouts, user, handleAddPost}){
     const initialValue = {
         workout_id: '',
         comments: ""
     }
     const [workoutFormData, setWorkoutFormData] = useState(initialValue)
 
-    if (users.length === 0){
+    if (user.length === 0){
         return  <h3>Loading...</h3>
     } else{
-        const currUser = users[0]
-        const {age, id, password, username } = currUser
+        const currUser = user
+        const {age, id,  username } = currUser
 
         function handleChange(e){
             const { name, value } = e.target;

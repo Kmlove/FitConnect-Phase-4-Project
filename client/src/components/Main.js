@@ -3,19 +3,19 @@ import Profile from './Profile';
 import PostsMainPage from './PostsMainPage';
 import Workouts from './Workouts';
 
-function Main() {
-  const [users, setUsers] = useState([]);
+function Main({user}) {
+  // const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   const [workouts, setWorkouts] = useState([]);
   const [selectedWorkout, setSelectedWorkout] = useState(null);
 
   // Fetch users data
-  useEffect(() => {
-    fetch('/users')
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .catch((error) => console.error('Error fetching users:', error));
-  }, []);
+  // useEffect(() => {
+  //   fetch('/users')
+  //     .then((res) => res.json())
+  //     .then((data) => setUsers(data))
+  //     .catch((error) => console.error('Error fetching users:', error));
+  // }, []);
 
   // Fetch posts data
   useEffect(() => {
@@ -51,7 +51,7 @@ function Main() {
   return (
     <div id="mainContainer">
       <div id="mainLeft">
-        <Profile users={users}/>
+        <Profile user={user}/>
         <Workouts 
           workouts={workouts} 
           selectedWorkout={selectedWorkout} 
@@ -60,7 +60,7 @@ function Main() {
       </div>
       <div id="mainRight">
         <PostsMainPage 
-          users={users} 
+          user={user} 
           workouts={workouts} 
           posts={postsToDisplay} 
           handleAddPost={handleAddPost} 
