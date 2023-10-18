@@ -88,7 +88,7 @@ def create_users():
 
         s = User(
             username = fake.user_name(),
-            password = fake.password(),
+            password_hash = fake.password(),
             age = randint(16,90)
         )
         users.append(s)

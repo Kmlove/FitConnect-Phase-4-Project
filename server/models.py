@@ -9,6 +9,7 @@ from sqlalchemy import MetaData
 from sqlalchemy.orm import validates
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy_serializer import SerializerMixin
+from sqlalchemy.ext.hybrid import hybrid_property
 
 convention = {
     "ix": "ix_%(column_0_label)s",
@@ -67,8 +68,8 @@ class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String, unique=True)
-    password = db.Column(db.String)
+    username = db.Column(db.String, unique=True, nullable=False)
+    _password_hash = db.Column(db.String)
     age = db.Column(db.Integer)
 
     workout_posts = db.relationship('WorkoutPost', backref='user', cascade="all, delete-orphan")
@@ -86,6 +87,23 @@ class User(db.Model, SerializerMixin):
         if age < 16:
             raise ValueError("Age must be 16 or older")
         return age
+
+    @hybrid_property
+    def password_hash(self):
+        return self._password_hash
+
+    @password_hash.setter
+    def password_hash(self, password):
+        from app import bcrypt
+        if type(password) is str and len(password) > 6:
+            password_hash = bcrypt.generate_password_hash(password.encode('utf-8'))
+            self._password_hash = password_hash.decode('utf-8')
+        else:
+            raise ValueError("Password Invalid")
+    
+    def authenticate(self, password):
+        from app import bcrypt
+        return bcrypt.check_password_hash(self._password_hash, password.encode('utf-8'))
 
 class WorkoutPost(db.Model, SerializerMixin):
     __tablename__ = 'workout_posts'
