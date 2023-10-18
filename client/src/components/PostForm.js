@@ -52,23 +52,40 @@ function PostForm({workouts, users, handleAddPost}){
         }
 
         return(
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="workout_id">Select a Workout:</label>
-                <select name="workout_id" id="workout_id" onChange={handleChange}>
-                    <option value=''></option>
-                    {workouts.map(workout => {
+            <form className="form-container" onSubmit={handleSubmit}>
+                <div className="form-elements">
+                    <label htmlFor="workout_id" className="form-label">
+                        Select a Workout:
+                    </label>
+                    <select
+                        className="form-select"
+                        name="workout_id"
+                        id="workout_id"
+                        onChange={handleChange}
+                    >
+                        <option value=""></option>
+                        {workouts.map((workout) => {
                         return (
-                            <option 
-                                key={workout.id} 
-                                value={workout.id}>
-                                {workout.name}
+                            <option key={workout.id} value={workout.id}>
+                            {workout.name}
                             </option>
-                        )
-                    })}
-                </select>
-                <label htmlFor="comments">What did you think about the workout?</label>
-                <textarea onChange={handleChange} value={workoutFormData.comments} name="comments" id="commments"></textarea>
-                <input type="submit"/>
+                        );
+                        })}
+                    </select>
+                </div>
+                <div className="form-element">
+                    <label htmlFor="comments" className="form-label">
+                        What did you think about the workout?
+                    </label>
+                    <textarea
+                        className="form-textarea"
+                        onChange={handleChange}
+                        value={workoutFormData.comments}
+                        name="comments"
+                        id="comments"
+                    ></textarea>
+                </div>
+                <input type="submit" className="form-button" />
             </form>
         )
     }

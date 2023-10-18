@@ -7,6 +7,7 @@ function Main() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   const [workouts, setWorkouts] = useState([]);
+  const [selectedWorkout, setSelectedWorkout] = useState(null);
 
   // Fetch users data
   useEffect(() => {
@@ -36,14 +37,36 @@ function Main() {
     setPosts([...posts, new_post])
   }
 
+  function handleChangeSelectedWorkout(workout){
+    setSelectedWorkout(workout)
+  }
+
+  let postsToDisplay
+  if (selectedWorkout === null){
+    postsToDisplay = posts
+  } else {
+    postsToDisplay = posts.filter((post) => post.workout_id === selectedWorkout.id)
+  }
+
   return (
     <div id="mainContainer">
       <div id="mainLeft">
         <Profile users={users}/>
-        <Workouts workouts={workouts} posts={posts}/>
+        <Workouts 
+          workouts={workouts} 
+          selectedWorkout={selectedWorkout} 
+          handleChangeSelectedWorkout={handleChangeSelectedWorkout}
+        />
       </div>
       <div id="mainRight">
-        <PostsMainPage users={users} workouts={workouts} posts={posts} handleAddPost={handleAddPost}/>
+        <PostsMainPage 
+          users={users} 
+          workouts={workouts} 
+          posts={postsToDisplay} 
+          handleAddPost={handleAddPost} 
+          selectedWorkout={selectedWorkout}
+          handleChangeSelectedWorkout={handleChangeSelectedWorkout}
+        />
       </div>
     </div>
   );
