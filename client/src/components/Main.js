@@ -41,6 +41,11 @@ function Main({user}) {
     setSelectedWorkout(workout)
   }
 
+  function handleDeletePost(deletedPost){
+    const updatedPosts = posts.filter(post => post.id !== deletedPost.id)
+    setPosts(updatedPosts)
+  }
+
   let postsToDisplay
   if (selectedWorkout === null){
     postsToDisplay = posts
@@ -66,6 +71,7 @@ function Main({user}) {
           handleAddPost={handleAddPost} 
           selectedWorkout={selectedWorkout}
           handleChangeSelectedWorkout={handleChangeSelectedWorkout}
+          handleDeletePost={handleDeletePost}
         />
       </div>
     </div>

@@ -8,8 +8,7 @@ function Profile({user}){
     //     const {age, id, username } = currUser
     
     //     const imageURL = "/client/src/Images/HeadshotBlank.jpg"
-        console.log(user)
-        
+            
         return (
             <div id="profileContainerDiv">
                 <img id="headshot" src={Blank} alt={`Image of ${user.username}`}/>
