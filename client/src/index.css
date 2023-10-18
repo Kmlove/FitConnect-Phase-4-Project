@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin:0;
+    padding:0;
 }
 
 #mainContainer {
@@ -205,3 +207,109 @@
     color: rgb(196, 94, 83);
 }
   
+/* -------------------LOGIN/SIGNUP------------------ */
+
+.login-signup-page {
+    background-image: linear-gradient(to right bottom, #defced, #caf6f3, #beeffb, #bfe5ff, #cbd8ff, #d2d5fe, #d9d2fd, #e1cffa, #dbd7fe, #d8deff, #d7e5ff, #daebff);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.signup-form-container,
+.login-form-container {
+    background-color: white;
+    width: 500px;
+    height: 400px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.5);
+    bottom: 70px;
+}
+
+.login-form,
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.login-form input,
+.signup-form input {
+    margin-bottom: 20px;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding-left: 20px
+}
+
+.login-signup-submit {
+    border-radius: 20px;
+    border: none;
+    width: 150px;
+    margin: 0 auto;
+    height: 40px;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+    background-color: royalblue;
+    color: white;
+    font-size: 1rem;
+}
+
+.login-signup-submit:hover {
+    background-color: rgb(32, 62, 154);
+    font-size: 1.1rem;
+} 
+
+.greeting-div {
+    text-align: center;
+    font-family: sans-serif;
+    width: 700px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.login-signup-toggle {
+    margin-top: 30px;
+    color: rgb(32, 62, 154);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+    border-radius: 10px;
+    width: 70px;
+    height: 40px;
+    text-align: center;
+    align-content: center;
+}
+
+.login-signup-toggle:hover {
+    font-size: 1.2rem;
+}
+
+.greeting {
+    font-size: 50px;
+}
+
+.fit {
+    color: #ff8e31;
+}
+
+.connect {
+    color: #5b6164;
+}
+
+.sub-greeting {
+    color: #5b6164;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
