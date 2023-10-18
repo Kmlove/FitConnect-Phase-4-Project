@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Profile from './Profile';
 import PostsMainPage from './PostsMainPage';
 import Workouts from './Workouts';
+import WorkoutForm from './WorkoutForm';
+
 
 
 function Main({user,setUser}) {
@@ -9,6 +11,11 @@ function Main({user,setUser}) {
   const [posts, setPosts] = useState([]);
   const [workouts, setWorkouts] = useState([]);
   const [selectedWorkout, setSelectedWorkout] = useState(null);
+
+  const handleAddWorkout = (newWorkout) => {
+    setWorkouts([...workouts, newWorkout]);
+  };
+
 
   // Fetch users data
   // useEffect(() => {
@@ -78,6 +85,7 @@ function Main({user,setUser}) {
           selectedWorkout={selectedWorkout}
           handleChangeSelectedWorkout={handleChangeSelectedWorkout}
         />
+        <WorkoutForm handleAddWorkout={handleAddWorkout} />
       </div>
       <div id="mainRight">
         <PostsMainPage
