@@ -30,6 +30,21 @@
     padding: 10px;
 }
 
+.random-image-container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+.profile-header {
+    position: absolute; /* Position it absolutely within the relative container */
+    top: 10px; /* Adjust the top position */
+    left: 42%; /* Center it horizontally */
+    transform: translateX(-50%); /* Center it horizontally */
+    font-size: 35px;
+    color: #000000;
+}
+
 #workoutsContainerDiv {
     height: 85%;
     background-color: rgb(196, 94, 83);
@@ -343,7 +358,22 @@
 }
 
 .sub-greeting {
-    color: #5b6164;
+    color: #000000;
     font-weight: 400;
     letter-spacing: 0.5px;
+}
+
+/* Logout button styles */
+.logout-button {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.logout-button:hover {
+    background-color: rgb(164, 164, 164);
 }
