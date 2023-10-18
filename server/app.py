@@ -171,7 +171,7 @@ class WorkoutPostsById(Resource):
         workout_posts = WorkoutPost.query.filter_by(id = id).first()
         if not workout_posts:
             return make_response({"error": ["WorkoutPost not found"]}, 404)
-        workout_to_dict = workout_posts.to_dict(rules=("-user.password",))
+        workout_to_dict = workout_posts.to_dict(rules=("-user._password_hash",))
         return make_response(workout_to_dict, 200)
 
     def patch(self, id):
@@ -183,7 +183,7 @@ class WorkoutPostsById(Resource):
                 setattr(workout_posts, attr, request.json[attr])
             db.session.add(workout_posts)
             db.session.commit()
-            return make_response(workout_posts.to_dict(rules=("-user.password",)), 202)
+            return make_response(workout_posts.to_dict(rules=("-user._password_hash",)), 202)
         except ValueError:
             return make_response({"errors":["validation errors"]}, 400)
 
