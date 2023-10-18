@@ -84,8 +84,9 @@ class User(db.Model, SerializerMixin):
     
     @validates('age')
     def validate_age(self, key, age):
-        if age < 16:
-            raise ValueError("Age must be 16 or older")
+        age = int(age)
+        if type(age) is int and age < 16 or age > 100:
+            raise ValueError("Age must be a number of 16 or older")
         return age
 
     @hybrid_property

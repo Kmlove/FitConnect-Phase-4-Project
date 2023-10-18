@@ -241,7 +241,7 @@ class AutoLogin(Resource):
             else:
                 return make_response({"errors": "User not found"}, 404)
         else:
-            return make_response({}, 204)
+            return make_response('', 204)
 
 api.add_resource(AutoLogin, '/auto_login')
 
