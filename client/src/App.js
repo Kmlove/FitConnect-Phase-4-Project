@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Main from "./components/Main"
 import LoginSignup from './components/LoginSignup';
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
   return(
     <div>
-      {user.username ? <Main user={user} /> : <LoginSignup userToDisplay={userToDisplay}/>}
+      {user && user.username ? <Main user={user} setUser={setUser} /> : <LoginSignup userToDisplay={setUser}/>}
     </div>
   )
 }
