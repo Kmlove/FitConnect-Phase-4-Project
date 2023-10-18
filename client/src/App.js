@@ -6,9 +6,9 @@ function App() {
   const [user, setUser] = useState('')
 
   // useEffect(() => {
-  //   fetch('/posts')
+  //   fetch('/auto_login')
   //     .then((res) => res.json())
-  //     .then((data) => setPosts(data))
+  //     .then((data) => setUser(data))
   //     .catch((error) => console.error('Error fetching posts:', error));
   // }, []);
 
