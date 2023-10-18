@@ -91,7 +91,7 @@ function Main({user,setUser}) {
         <PostsMainPage
           user={user}
           workouts={workouts}
-          posts={posts}
+          posts={postsToDisplay}
           handleAddPost={handleAddPost}
           selectedWorkout={selectedWorkout}
           handleChangeSelectedWorkout={handleChangeSelectedWorkout}

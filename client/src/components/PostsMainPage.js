@@ -2,8 +2,8 @@ import PostForm from "./PostForm"
 import PostList from "./PostList"
 import SelectedWorkout from "./SelectedWorkout"
 
-function PostsMainPage({ posts, workouts, user, handleAddPost, selectedWorkout, handleChangeSelectedWorkout }) {
-  const workoutName = selectedWorkout ? (selectedWorkout.workout ? selectedWorkout.workout.name : "All") : "All";
+function PostsMainPage({ posts, workouts, user, handleAddPost, selectedWorkout, handleChangeSelectedWorkout, handleDeletePost, handleUpdatePostComment }) {
+  const workoutName = selectedWorkout ? selectedWorkout.name : "All";
 
   return (
     <div id="postsMainPageContainerDiv">
@@ -15,8 +15,8 @@ function PostsMainPage({ posts, workouts, user, handleAddPost, selectedWorkout, 
       />
       {selectedWorkout && <SelectedWorkout selectedWorkout={selectedWorkout} />}
       <h1 className="section-headers">{workoutName} Posts</h1>
-      {selectedWorkout ? <button onClick={e => handleChangeSelectedWorkout(null)}>Show All Post</button> : null}
-      <PostList posts={posts} />
+      {selectedWorkout ? <button onClick={e => handleChangeSelectedWorkout(null)} className="form-button">Show All Post</button> : null}
+      <PostList handleDeletePost={handleDeletePost} posts={posts} handleUpdatePostComment={handleUpdatePostComment}/>
     </div>
   )
 }

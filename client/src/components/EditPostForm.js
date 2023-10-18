@@ -9,7 +9,6 @@ function EditPostForm({post, handleUpdatePostComment}){
     
     function handleSubmit(e){
         e.preventDefault()
-
         fetch(`posts/${post.id}`, {
             method: "PATCH",
             headers: {'Content-Type' : 'application/json'},
@@ -17,12 +16,15 @@ function EditPostForm({post, handleUpdatePostComment}){
         })
         .then(res => {
             if (res.status === 202){
-                res.json()
+                return res.json()
             } else if (res.status === 400){
                 alert(`Please enter a comment before submiting`)
             }
         })
-        .then(data => handleUpdatePostComment(data))
+        .then(data => {
+            console.log('datafromEditPost', data)
+            handleUpdatePostComment(data)
+        })
         .catch(err => console.log(err))
     }
     
