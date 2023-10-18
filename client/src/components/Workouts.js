@@ -2,10 +2,13 @@ function Workouts({workouts, selectedWorkout, handleChangeSelectedWorkout}) {
  
   const handleWorkoutClick = (workout) => {
     if (selectedWorkout === null){
+      console.log(workout)
       handleChangeSelectedWorkout(workout)
     } else if (selectedWorkout.id === workout.id){
+      console.log(workout)
       handleChangeSelectedWorkout(null)
     } else {
+      console.log(workout)
       handleChangeSelectedWorkout(workout)
     }
   };

@@ -24,7 +24,6 @@ function WorkoutForm({ handleAddWorkout }) {
   };
 
   const handleSubmit = (event) => {
-    handleAddWorkout(workoutData);
     event.preventDefault();
     const formData = {
       name: workoutData.name,
@@ -48,15 +47,8 @@ function WorkoutForm({ handleAddWorkout }) {
       },
       body: JSON.stringify(formData),
     })
-      .then(response => {
-        if (response.status === 201) {
-          console.log('Workout created successfully');
-        } else if (response.status === 400) {
-          console.error('Validation errors');
-        } else {
-          console.error('An error occurred');
-        }
-      })
+      .then(response => response.json())
+      .then(data => handleAddWorkout(data))
       .catch(error => {
         console.error('An error occurred:', error);
       });
