@@ -57,8 +57,8 @@ function Profile({ user, onLogout }) {
       <div className='profile-details-container'>
           <img id="headshot" src='https://picsum.photos/788/861' alt='profile photo' />
           <div>
-              <h2>{user.username}</h2>
-              <h3>Age: {user.age}</h3>
+              <h2 className='prof-name'>{user.username}</h2>
+              <h3 className='prof-age'>Age: {user.age}</h3>
           </div>
       </div>
       <button className='logout-button' onClick={handleLogout}>Logout</button>
