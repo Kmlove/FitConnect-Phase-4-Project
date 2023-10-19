@@ -37,7 +37,7 @@ function Post({post, user, handleDeletePost, handleUpdatePostComment}){
                     <strong className="post-list-header">{post.workout.name}</strong>
                 </div>
                 {post.comments}
-                {edit ? <EditPostForm post={post} handleUpdatePostComment={handleUpdatePostComment}/> : null}
+                {edit ? <EditPostForm handleEditClick={handleEditClick} post={post} handleUpdatePostComment={handleUpdatePostComment}/> : null}
             </div>
             {post.user_id === user.id ? postButtons : ""}
         </li>

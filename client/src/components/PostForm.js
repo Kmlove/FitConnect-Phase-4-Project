@@ -54,7 +54,7 @@ function PostForm({workouts, user, handleAddPost}){
             <form className="form-container" onSubmit={handleSubmit}>
                 <div className="form-elements">
                     <label htmlFor="workout_id" className="form-label">
-                        Select a Workout:
+                        Workout:
                     </label>
                     <select
                         className="form-select"
