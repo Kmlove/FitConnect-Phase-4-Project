@@ -41,6 +41,7 @@ function Main({user,setUser}) {
           .catch((error) => console.error('Error fetching workouts:', error));
       }, []);
   
+  console.log(user)
   function handleAddPost(new_post){
     setPosts([...posts, new_post])
   }

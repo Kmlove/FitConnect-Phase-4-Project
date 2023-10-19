@@ -89,10 +89,11 @@ def create_users():
         s = User(
             username = fake.user_name(),
             password_hash = fake.password(),
-            age = randint(16,90)
+            age = randint(16,90),
+            image_url = fake.image_url()
         )
         users.append(s)
-
+    
     return users
 
 
