@@ -8,7 +8,6 @@ function Profile({ user, onLogout }) {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
   });
-
   const handleLogout = () => {
     fetch('/logout', {
       method: 'DELETE',
@@ -18,6 +17,7 @@ function Profile({ user, onLogout }) {
     })
       .then(response => {
         if (response.status === 204) {
+
           onLogout();
         } else {
           console.error('Logout failed');
@@ -54,16 +54,18 @@ function Profile({ user, onLogout }) {
 
   return (
     <div id="profileContainerDiv" style={randomImageStyle}>
-      <h1 className="profile-header">Profile</h1>
-      <img id="headshot" src={Blank} alt={`Image of ${user.username}`} />
-      <h2>{user.username}</h2>
-      <h3>Age: {user.age}</h3>
-      <button className="logout-button" onClick={handleLogout}>
-        Logout
-      </button>
+      <div className='profile-details-container'>
+          <img id="headshot" src='https://picsum.photos/788/861' alt='profile photo' />
+          <div>
+              <h2>{user.username}</h2>
+              <h3>Age: {user.age}</h3>
+          </div>
+      </div>
+      <button className='logout-button' onClick={handleLogout}>Logout</button>
     </div>
   );
 }
 
 export default Profile;
+
 

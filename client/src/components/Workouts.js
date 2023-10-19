@@ -22,7 +22,7 @@ function Workouts({workouts, selectedWorkout, handleChangeSelectedWorkout}) {
           <ul>
             {workouts.map((workout) => (
               <li key={workout.id} onClick={() => handleWorkoutClick(workout)} className='workout-list-item'>
-                <strong>Name:</strong> {workout.name}
+                <strong>Workout:</strong> {workout.name}
                 <br />
                 <strong>Type:</strong> {workout.type}
               </li>

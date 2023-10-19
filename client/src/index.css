@@ -2,193 +2,255 @@
     box-sizing: border-box;
     margin:0;
     padding:0;
-}
-
-#mainContainer {
-    padding: 10px;
-    max-width: 1800px;
-    margin: 0 auto;
+    font-family: sans-serif;
+  }
+  
+  #root {
+    width: 100%;
+  }
+  
+  .App {
+    width: 100%;
+    background-image: linear-gradient(to right top, #86bec5, #90b9c7, #9bb5c4, #a4b0be, #aaadb6, #b0afb8, #b6b2ba, #bcb4bb, #cdbac1, #dfc0c2, #edc8bf, #f5d2bb);
+  }
+  
+  #mainContainer {
+    /* padding: 10px; */
+    width: 100%;
+    margin: 0;
     display: flex;
     justify-content: space-between;
-}
-
-#mainLeft{
-    width: 38%;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  
+  
+  #mainLeft{
+    width: 30%;
     display: flex;
     flex-direction: column;
     gap: 25px;
-}
-
-#mainRight{
-    width: 60%;
-}
-
-#profileContainerDiv {
-    height: 300px;
-    background-color: rgb(206, 123, 114);
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.random-image-container {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
   }
-
-.profile-header {
-    position: absolute; /* Position it absolutely within the relative container */
-    top: 10px; /* Adjust the top position */
-    left: 42%; /* Center it horizontally */
-    transform: translateX(-50%); /* Center it horizontally */
-    font-size: 35px;
-    color: #000000;
-}
-
-#workoutsContainerDiv {
-    height: 85%;
-    background-color: rgb(196, 94, 83);
+  
+  #mainRight{
+    width: 68%;
+  }
+  
+  #profileContainerDiv {
+    height: 20vh;
+    background-color: #E7E7E7;
     border-radius: 10px;
     padding: 10px;
-}
-
-#postsMainPageContainerDiv{
-    background-color: rgb(207, 203, 203);
+    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
+  }
+  
+  #workoutsContainerDiv {
+    background-color: #E7E7E7;
     border-radius: 10px;
-    height: 100%;
     padding: 10px;
-}
-
-#headshot {
+    height: 65vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.4);
+  }
+  
+  #postsMainPageContainerDiv{
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    height: 97vh;
+    overflow: hidden;
+    overflow-x: hidden;
+    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #headshot {
     width: 150px;
-    border-radius: 25%;
-}
-
-.section-headers {
+    height: 150px;
+    border-radius: 100px;
+  }
+  
+  .section-headers {
     /* font-size: 28px; */
-    color: rgb(206, 123, 114); 
+    color: #091819;
     text-align: center;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-/* FormStyles.css */
-
-/* Form container */
-.form-container {
+    margin: 20px 0;
+  }
+  
+  /* FormStyles.css */
+  
+  /* Form container */
+  .form-container {
     display: flex;
     flex-direction: row; /* Display everything in a row */
-    width: 90%;
-    max-width: 800px; /* Adjust the width as needed */
+    width: 95%; /* Adjust the width as needed */
     align-items: center;
     margin: 0 auto;
+    justify-content: space-evenly;
     padding: 20px;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
+    background-color: #e7e7e7;
     border-radius: 5px;
     gap: 10px;
-}
+    height: 120px;
+  }
   
-/* Form elements container */
-.form-elements {
+  /* Form elements container */
+  .form-elements {
     display: flex;
     flex-direction: column;
     flex-grow: 1; /* Allow the elements to expand to fill the remaining space */
     padding: 10px;
-}
+  }
   
-/* Form labels */
-.form-label {
+  /* Form labels */
+  .form-label {
     font-weight: bold;
     margin-bottom: 8px;
-}
+  }
   
-/* Select box */
-.form-select {
-    width: 100%;
-    padding: 10px;
+  /* Select box */
+  .form-select {
+    max-width: 150px;
+    padding-left: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-}
+    border-radius: 10px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
   
-/* Textarea */
-.form-textarea {
-    width: 100%;
-    height: 100px;
+  
+  
+  /* Textarea */
+  .form-textarea {
+    width: 45vw;
+    height: 50px;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
     resize: vertical;
-}
+  }
   
-/* Submit button */
-.form-button {
-    background-color: rgb(196, 94, 83);
+  /* Submit button */
+  .form-button {
+    background-color: #EA6C36;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+    transition: all ease-in-out 0.2s;
+    font-weight: bold;
+    font-size: 15px;
+    position: relative;
+    margin: 10px;
+  }
   
-/* Submit button hover effect */
-.form-button:hover {
-    background-color: rgb(206, 123, 114);
-}
-
-/* Post styles */
-#postsMainPageContainerDiv ul {
+  .form-button-posts {
+    margin-top: 15px;
+  }
+  
+  
+  /* Submit button hover effect */
+  .form-button:hover {
+    background-color: #ff4d00;
+  }
+  
+  /* Post styles */
+  #postsMainPageContainerDiv ul {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     list-style-type: none; /* Remove default list bullet */
     padding: 0; /* Remove default list padding */ 
     max-height: 100vh;
+    width: 100%;
     overflow-y: scroll;
-}
-
-.post-list-item {
+    background-color: #E7E7E7;
+  }
+  
+  .post-list-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    background-color: #E7E7E7;
     padding: 10px;
     margin: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
+    border-top: 1px solid black;
+  }
   
-.post-list-item strong {
-    color: rgb(206, 123, 114); /* Style the "strong" text in a different color */
+  .post-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 120px;
+  }
+  
+  /* Style the "strong" text in a different color */
+  
+  .post-list-header {
+    color: #EA6C36;
     font-weight: bold;
-}
-
-#post-buttons {
+    font-size: 1.5rem;
+  }
+  
+  .post-list-header-div {
+    margin-bottom: 15px;
+  }
+  
+  
+  .post-list-photo-div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .post-list-profile-picture {
+    border-radius: 50px;
+    margin-right: 7px;
+  }
+  
+  .profile-details-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-details-container div {
+    margin-left: 20px;
+  }
+  
+  #post-buttons {
     display: flex;
     flex-direction: column;
     gap: 5px;
-}
-
-.post-delete-button, .post-edit-button {
+  }
+  
+  .post-delete-button, .post-edit-button {
     width: 30px;
     height: 30px;
     font-weight: bold;
-    color: white;
-    background-color: rgb(196, 94, 83);
-    border-color: rgb(196, 94, 83);
-    border-radius: 5px;
-}
-
-.post-delete-button:hover, .post-edit-button:hover {
+    color: #EA6C36;
+    /* background-color: #EA6C36; */
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    transition: all ease-in-out 0.2s;
+    font-size: 1.3rem;
+  }
+  
+  .post-delete-button:hover, .post-edit-button:hover {
     cursor: pointer;
-    background-color: rgb(206, 123, 114);
-}
-
-/* Workout styles */
-.workout-list-item {
+    background-color: #EA6C36;
+    color: white;
+  }
+  
+  /* Workout styles */
+  .workout-list-item {
     background-color: #f5f5f5;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -196,57 +258,70 @@
     padding: 15px;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
-}
-
-#workoutsContainerDiv ul{
+  }
+  
+  #workoutsContainerDiv ul{
     display: flex;
     flex-direction: column;
     justify-content: center;
     list-style-type: none; /* Remove default list bullet */
     padding: 0; /* Remove default list padding */ 
-}
+  }
   
-.workout-list-item:hover {
+  .workout-list-item:hover {
     transform: scale(1.03); /* Add a hover effect for a slight zoom-in */
     background-color: #fff; /* White background on hover */
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
-}
+  }
   
-.workout-list-item strong {
-    color: rgb(206, 123, 114); /* Style the "strong" text in a different color */
+  .workout-list-item strong {
+    color: #EA6C36; /* Style the "strong" text in a different color */
     font-weight: bold;
-} 
-
-/* Styles for Selected Workout Section */
-.selected-workout {
+  } 
+  
+  /* Styles for Selected Workout Section */
+  .selected-workout {
     width: 96%;
     margin: 0 auto;
-}
-
-/* Style the strong tags for emphasis */
-.selected-workout p strong {
-    color: rgb(196, 94, 83);
-}
+    display: flex;
+    justify-content: space-evenly;
+  }
   
-/* Style the workout details */
-.selected-workout p {
+  /* Style the strong tags for emphasis */
+  .selected-workout p strong {
+    color: rgb(196, 94, 83);
+    margin-right: 10px;
+  }
+  
+  /* Style the workout details */
+  .selected-workout p {
     font-size: 18px;
     line-height: 1.4;
-    margin-bottom: 10px;
-    padding: 5px;
+    margin: 10px 0;
+    padding: 10px;
     background-color: #f5f5f5; /* Light gray background */
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
+    text-align: center;
+  }
+  
+  .selected-workout-name,
+  .selected-workout-type {
+    width: 250px;
+  }
+  
+  .selected-workout-program {
+    width: 600px;
+  }
     
-/* Style the sets and reps in the program */
-.selected-workout span.sets-reps {
+  /* Style the sets and reps in the program */
+  .selected-workout span.sets-reps {
     font-weight: bold;
     color: rgb(196, 94, 83);
-}
-
-.edit-form-textarea {
+  }
+  
+  .edit-form-textarea {
     width: 100%;
     height: 50px;
     padding: 10px;
@@ -255,20 +330,20 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     resize: vertical;
-}
+  }
   
-/* -------------------LOGIN/SIGNUP------------------ */
-.login-signup-page {
-    background-image: linear-gradient(to right bottom, #defced, #caf6f3, #beeffb, #bfe5ff, #cbd8ff, #d2d5fe, #d9d2fd, #e1cffa, #dbd7fe, #d8deff, #d7e5ff, #daebff);
+  /* -------------------LOGIN/SIGNUP------------------ */
+  .login-signup-page {
+    background-image: linear-gradient(to right top, #86bec5, #90b9c7, #9bb5c4, #a4b0be, #aaadb6, #b0afb8, #b6b2ba, #bcb4bb, #cdbac1, #dfc0c2, #edc8bf, #f5d2bb);
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-}
-
-.signup-form-container,
-.login-form-container {
+  }
+  
+  .signup-form-container,
+  .login-form-container {
     background-color: white;
     width: 500px;
     height: 400px;
@@ -280,27 +355,27 @@
     position: relative;
     box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.5);
     bottom: 70px;
-}
-
-.login-form,
-.signup-form {
+  }
+  
+  .login-form,
+  .signup-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     
-}
-
-.login-form input,
-.signup-form input {
+  }
+  
+  .login-form input,
+  .signup-form input {
     margin-bottom: 20px;
     width: 300px;
     height: 50px;
     border-radius: 10px;
     border: 1px solid black;
     padding-left: 20px
-}
-
-.login-signup-submit {
+  }
+  
+  .login-signup-submit {
     border-radius: 20px;
     border: none;
     width: 150px;
@@ -311,14 +386,14 @@
     background-color: royalblue;
     color: white;
     font-size: 1rem;
-}
-
-.login-signup-submit:hover {
+  }
+  
+  .login-signup-submit:hover {
     background-color: rgb(32, 62, 154);
     font-size: 1.1rem;
-} 
-
-.greeting-div {
+  } 
+  
+  .greeting-div {
     text-align: center;
     font-family: sans-serif;
     width: 700px;
@@ -326,9 +401,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-}
-
-.login-signup-toggle {
+  }
+  
+  .login-signup-toggle {
     margin-top: 30px;
     color: rgb(32, 62, 154);
     font-size: 1.1rem;
@@ -339,32 +414,33 @@
     height: 40px;
     text-align: center;
     align-content: center;
-}
-
-.login-signup-toggle:hover {
+  }
+  
+  .login-signup-toggle:hover {
     font-size: 1.2rem;
-}
-
-.greeting {
+  }
+  
+  .greeting {
     font-size: 50px;
-}
-
-.fit {
+  }
+  
+  .fit {
     color: #ff8e31;
-}
-
-.connect {
+    text-shadow: 1px 0 #5b6164, -1px 0 #5b6164, 0 1px #5b6164, 0 -1px #5b6164,
+             1px 1px #5b6164, -1px -1px #5b6164, 1px -1px #5b6164, -1px 1px #5b6164;
+  }
+  
+  .connect {
     color: #5b6164;
-}
-
-.sub-greeting {
-    color: #000000;
+  }
+  
+  .sub-greeting {
+    color: #5b6164;
     font-weight: 400;
     letter-spacing: 0.5px;
-}
-
-/* Logout button styles */
-.logout-button {
+  }
+  
+  .logout-button {
     background-color: rgb(0, 0, 0);
     color: #fff;
     padding: 10px 20px;
@@ -372,8 +448,8 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
-}
-
-.logout-button:hover {
+  }
+  
+  .logout-button:hover {
     background-color: rgb(164, 164, 164);
-}
+  }
