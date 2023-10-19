@@ -1,6 +1,6 @@
 import Post from "./Post";
 
-function PostList({posts, handleDeletePost, handleUpdatePostComment}){
+function PostList({posts, user , handleDeletePost, handleUpdatePostComment}){
 
     if (posts.length === 0){
         return null
@@ -11,6 +11,7 @@ function PostList({posts, handleDeletePost, handleUpdatePostComment}){
                     <Post 
                     key={post.id} 
                     post={post} 
+                    user={user}
                     handleDeletePost={handleDeletePost} 
                     handleUpdatePostComment={handleUpdatePostComment}
                     />))
