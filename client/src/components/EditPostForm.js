@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./EditPostForm.css"
 
-function EditPostForm({post, handleUpdatePostComment}){
+function EditPostForm({post, handleUpdatePostComment, handleEditClick}){
     const [comments, setComments] = useState(post.comments)
 
     function handleChange(e){
@@ -26,10 +26,11 @@ function EditPostForm({post, handleUpdatePostComment}){
             handleUpdatePostComment(data)
         })
         .catch(err => console.log(err))
+        handleEditClick()
     }
     
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="edit-post-form" onSubmit={handleSubmit}>
             <textarea className='edit-form-textarea' name='comments' type='text' value={comments} onChange={handleChange}></textarea>
             <input type="submit" className="form-button"/>
         </form>

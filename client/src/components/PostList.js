@@ -3,7 +3,9 @@ import Post from "./Post";
 function PostList({posts, user, handleDeletePost, handleUpdatePostComment}){
     
     if (posts.length === 0){
-        return null
+        return (
+            <strong>No posts for this Workout.</strong>
+        )
     } else {
         return (
             <ul >

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function WorkoutForm({ handleAddWorkout }) {
+function WorkoutForm({ handleAddWorkout, handleChangeWorkoutAdd }) {
 
     const initialValue = {
         name: '',
@@ -54,6 +54,7 @@ function WorkoutForm({ handleAddWorkout }) {
       });
 
     setWorkoutData(initialValue);
+    handleChangeWorkoutAdd();
   };
   
   return (
