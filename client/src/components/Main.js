@@ -74,7 +74,7 @@ function Main({user,setUser}) {
 
   const handleLogout = () => {
       setUser(null);
-      navigate('/login-signup')
+      navigate('/')
   };
 
   return (

@@ -22,8 +22,6 @@ function Post({post, user, handleDeletePost, handleUpdatePostComment}){
         setEdit(edit => !edit)
     }
 
-    console.log(post, user)
-
     const postButtons = <div id='post-buttons'>
                             <button onClick={handleDeleteClick} className='post-delete-button'>✖</button>
                             <button onClick={handleEditClick} className='post-edit-button'>✏️</button>

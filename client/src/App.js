@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Main from "./components/Main"
-import LoginSignup from './components/LoginSignup';
+import Login from './components/Login';
+import Signup from './components/Signup';
 import {Route, Routes, Navigate} from "react-router-dom";
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
   return(
     <div className='App'>
       <Routes>
-        <Route path='/login-signup' element={<LoginSignup userToDisplay={setUser}/>}/>
+        <Route path='/' element={<Login userToDisplay={setUser}/>}/>
+        <Route path='/signup' element={<Signup userToDisplay={setUser}/>}/>
         <Route path='/home' element={<Main user={user} setUser={setUser} />}/>
       </Routes>
       {/* <Navigate to="/" replace /> */}
