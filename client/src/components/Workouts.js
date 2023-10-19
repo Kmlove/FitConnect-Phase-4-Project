@@ -41,7 +41,7 @@ function Workouts({workouts, selectedWorkout, handleChangeSelectedWorkout, handl
                 <h1 className='section-headers'>{addWorkout ? 'Add Workout' : 'Workouts'}</h1>
                 <p className='workouts-plus-btn' onClick={handleChangeWorkoutAdd}>{addWorkout ? '-' : '+'}</p>
           </div>
-          {addWorkout ? <WorkoutForm handleAddWorkout={handleAddWorkout} /> : workoutsUl}
+          {addWorkout ? <WorkoutForm handleChangeWorkoutAdd={handleChangeWorkoutAdd} handleAddWorkout={handleAddWorkout} /> : workoutsUl}
         </div>
       );
     }
