@@ -187,7 +187,7 @@
   /* Post styles */
   #postsMainPageContainerDiv ul {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: flex-start;
     list-style-type: none; /* Remove default list bullet */
     padding: 0; /* Remove default list padding */ 

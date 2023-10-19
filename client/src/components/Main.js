@@ -6,7 +6,6 @@ import WorkoutForm from './WorkoutForm';
 import { useNavigate } from 'react-router-dom';
 
 function Main({user,setUser}) {
-  // const [users, setUsers] = useState([]);
   const navigate = useNavigate()
   const [posts, setPosts] = useState([]);
   const [workouts, setWorkouts] = useState([]);
@@ -15,15 +14,6 @@ function Main({user,setUser}) {
   const handleAddWorkout = (newWorkout) => {
     setWorkouts([...workouts, newWorkout]);
   };
-
-
-  // Fetch users data
-  // useEffect(() => {
-  //   fetch('/users')
-  //     .then((res) => res.json())
-  //     .then((data) => setUsers(data))
-  //     .catch((error) => console.error('Error fetching users:', error));
-  // }, []);
 
   // Fetch posts data
   useEffect(() => {
