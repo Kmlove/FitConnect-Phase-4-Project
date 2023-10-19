@@ -50,7 +50,7 @@
     border-radius: 10px;
     padding: 10px;
     height: 73vh;
-    overflow: scroll;
+    overflow: hidden;
     overflow-x: hidden;
     box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.4);
     position: relative;
@@ -58,6 +58,25 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .workout-list-item {
+    object-fit: contain;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    width: 40vh; 
+    max-width: 100%; 
+  }
+
+  .workout-list-item:hover {
+    transform: scale(1.1); 
+  }
+
+  
   
   #postsMainPageContainerDiv{
     background-color: #e7e7e7;
@@ -290,6 +309,7 @@
     list-style-type: none; /* Remove default list bullet */
     padding: 0; /* Remove default list padding */ 
   }
+
 
   #workout-form-container {
     display: flex;
