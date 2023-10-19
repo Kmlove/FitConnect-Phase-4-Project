@@ -57,63 +57,121 @@ function WorkoutForm({ handleAddWorkout }) {
   };
   
   return (
-    <div>
-      <h2>Add a New Workout</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label className="name">Name:</label>
+    <div id='workout-form-container'>
+      <form className='workout-form' onSubmit={handleSubmit}>
           <input
             type="text"
+            placeholder='Name of Workout'
             id="name"
+            required={true}
             name="name"
+            className='workout-form-name'
             value={workoutData.name}
             onChange={handleInputChange}
           />
-        </div>
-        <div>
-          <label className="type">Type:</label>
           <input
             type="text"
             id="type"
+            required={true}
+            placeholder='Type of Workout'
             name="type"
+            className='workout-form-type'
             value={workoutData.type}
             onChange={handleInputChange}
           />
+        <div className='workout-form-row'>
+              <div className= 'workout-form-cols'>
+                <input
+                  type="text"
+                  id="set1Name"
+                  required={true}
+                  placeholder='Set 1 Name'
+                  name="set1Name"
+                  className='form-set-input'
+                  value={workoutData.set1Name}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="number"
+                  id="set1Sets"
+                  required={true}
+                  placeholder='Set 1 Sets'
+                  name="set1Sets"
+                  className='form-set-input'
+                  value={workoutData.set1Sets}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="number"
+                  placeholder='Set 1 Reps'
+                  id="set1Reps"
+                  required={true}
+                  name="set1Reps"
+                  className='form-set-input'
+                  value={workoutData.set1Reps}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className= 'workout-form-cols'>
+                    <input
+                      type="text"
+                      id="set2Name"
+                      placeholder='Set 2 Name (Optional)'
+                      name="set2Name"
+                      className='form-set-input'
+                      value={workoutData.set2Name}
+                      onChange={handleInputChange}
+                    />
+                    <input
+                      type="number"
+                      id="set2Sets"
+                      placeholder='Set 2 Sets (Optional)'
+                      name="set2Sets"
+                      className='form-set-input'
+                      value={workoutData.set2Sets}
+                      onChange={handleInputChange}
+                    />
+                    <input
+                      type="number"
+                      placeholder='Set 2 Reps (Optional)'
+                      id="set2Reps"
+                      name="set2Reps"
+                      className='form-set-input'
+                      value={workoutData.set2Reps}
+                      onChange={handleInputChange}
+                    />
+              </div>
+              <div className= 'workout-form-cols'>
+                  <input
+                    type="text"
+                    id="set3Name"
+                    placeholder='Set 3 Name (Optional)'
+                    name="set3Name"
+                    className='form-set-input'
+                    value={workoutData.set3Name}
+                    onChange={handleInputChange}
+                  />
+                  <input
+                    type="number"
+                    id="set3Sets"
+                    placeholder='Set 3 Sets (Optional)'
+                    name="set3Sets"
+                    className='form-set-input'
+                    value={workoutData.set3Sets}
+                    onChange={handleInputChange}
+                  />
+                  <input
+                    type="number"
+                    placeholder='Set 3 Reps (Optional)'
+                    id="set3Reps"
+                    name="set3Reps"
+                    className='form-set-input'
+                    value={workoutData.set3Reps}
+                    onChange={handleInputChange}
+                  />
+            </div>
         </div>
-        <div>
-          <label className="set1Name">Set 1 Name:</label>
-          <input
-            type="text"
-            id="set1Name"
-            name="set1Name"
-            value={workoutData.set1Name}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label className="set1Sets">Set 1 Sets:</label>
-          <input
-            type="number"
-            id="set1Sets"
-            name="set1Sets"
-            value={workoutData.set1Sets}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label className="set1Reps">Set 1 Reps:</label>
-          <input
-            type="number"
-            id="set1Reps"
-            name="set1Reps"
-            value={workoutData.set1Reps}
-            onChange={handleInputChange}
-          />
-        </div>
-        
-        <div>
           <button type="submit">Add Workout</button>
-        </div>
       </form>
     </div>
   );

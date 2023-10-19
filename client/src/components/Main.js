@@ -85,8 +85,8 @@ function Main({user,setUser}) {
           workouts={workouts}
           selectedWorkout={selectedWorkout}
           handleChangeSelectedWorkout={handleChangeSelectedWorkout}
+          handleAddWorkout={handleAddWorkout}
         />
-        <WorkoutForm handleAddWorkout={handleAddWorkout} />
       </div>
       <div id="mainRight">
         <PostsMainPage
