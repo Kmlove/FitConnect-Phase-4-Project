@@ -84,7 +84,7 @@ function PostForm({workouts, user, handleAddPost}){
                         id="comments"
                     ></textarea>
                 </div>
-                <input type="submit" className="form-button" />
+                <input type="submit" className="form-button form-button-posts" />
             </form>
         )
     }

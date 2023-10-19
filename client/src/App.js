@@ -18,7 +18,7 @@ function App() {
 
 
   return(
-    <div>
+    <div className='App'>
       {user && user.username ? <Main user={user} setUser={setUser} /> : <LoginSignup userToDisplay={setUser}/>}
     </div>
   )
