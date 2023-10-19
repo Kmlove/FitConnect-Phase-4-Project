@@ -31,7 +31,7 @@ function Post({post, user, handleDeletePost, handleUpdatePostComment}){
         <li key={post.id} className="post-list-item">
             <div className="post-list-container">
                 <div className="post-list-photo-div">
-                    <img className="post-list-profile-picture" src='https://picsum.photos/788/861' alt='profile photo' width={'30px'} height={'auto'} />{'@' + post.user.username}
+                    <img className="post-list-profile-picture" src={post.user.image_url} alt='profile photo' width={'30px'} height={'auto'} />{'@' + post.user.username}
                 </div>
                 <div className="post-list-header-div">
                     <strong className="post-list-header">{post.workout.name}</strong>

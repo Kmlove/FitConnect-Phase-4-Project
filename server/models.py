@@ -71,6 +71,7 @@ class User(db.Model, SerializerMixin):
     username = db.Column(db.String, unique=True, nullable=False)
     _password_hash = db.Column(db.String)
     age = db.Column(db.Integer)
+    image_url = db.Column(db.String)
 
     workout_posts = db.relationship('WorkoutPost', backref='user', cascade="all, delete-orphan")
 

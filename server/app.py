@@ -15,6 +15,9 @@ from flask_migrate import Migrate
 from flask import Flask, make_response, jsonify, request, session
 import os
 from flask_bcrypt import Bcrypt
+from faker import Faker
+
+fake = Faker()
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 DATABASE = os.environ.get(
@@ -202,7 +205,8 @@ class Signup(Resource):
             new_user = User(
                 username = request.json['username'],
                 password_hash = request.json['password'],
-                age = request.json['age']
+                age = request.json['age'],
+                image_url = fake.image_url()
             )
             db.session.add(new_user)
             db.session.commit()

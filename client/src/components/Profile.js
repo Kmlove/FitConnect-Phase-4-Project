@@ -55,7 +55,7 @@ function Profile({ user, onLogout }) {
   return (
     <div id="profileContainerDiv" style={randomImageStyle}>
       <div className='profile-details-container'>
-          <img id="headshot" src='https://picsum.photos/788/861' alt='profile photo' />
+          <img id="headshot" src={user.image_url} alt='profile photo' />
           <div>
               <h2 className='prof-name'>{user.username}</h2>
               <h3 className='prof-age'>Age: {user.age}</h3>
