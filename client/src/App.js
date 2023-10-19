@@ -14,11 +14,6 @@ function App() {
       .then((data) => setUser(data))
       .catch((error) => console.error('Error fetching posts:', error));
   }, []);
-
-  function userToDisplay(user) {
-    setUser(user)
-  }
-
   
   return(
     <div className='App'>
@@ -27,9 +22,6 @@ function App() {
         <Route path='/signup' element={<Signup userToDisplay={setUser}/>}/>
         <Route path='/home' element={<Main user={user} setUser={setUser} />}/>
       </Routes>
-      {/* <Navigate to="/" replace /> */}
-
-      {/* {user && user.username ? <Main user={user} setUser={setUser} /> : <LoginSignup userToDisplay={setUser}/>} */}
     </div>
   )
 }

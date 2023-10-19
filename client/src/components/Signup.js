@@ -9,6 +9,7 @@ function Signup({userToDisplay}) {
     }
     const navigate = useNavigate()
     const [userExists, setUserExists] = useState(false)
+    const [validationError, setValidationError] = useState(false)
     const [signupForm, setSignupForm] = useState(initialValue)
 
     function handleSignupChange(e) {
@@ -30,24 +31,42 @@ function Signup({userToDisplay}) {
         .then((res) => {
             if (res.status === 201){
                 return res.json()
-            } else if (res.status === 400 || res.status === 500){
+            } else if (res.status === 500){
                 setUserExists(true)
+                setValidationError(false)
                 console.error('Username Already Exists')
-                setSignupForm(initialValue)
+                setSignupForm({
+                    ...signupForm, 
+                    username: ''
+                })
                 return Promise.reject('Username Already Exists')
+            } else if(res.status === 400){
+                setUserExists(false)
+                setValidationError(true)
+                console.error('Username and Password must be present and age must be 16 years or older')
+                return Promise.reject('Username and Password must be present and age must be 16 years or older')
             }
         })
         .then((data) => {
             userToDisplay(data)
             navigate('/home')
         })
-        .catch((error) => console.error('Username Already Exists', error));
+        .catch((error) => console.error('Error', error));
     }
     
     const warningStyles = {
         color: "red",
         marginTop: "-10px",
-        marginBottom: "10px"
+        marginBottom: "10px",
+        textAlign: "center"
+    }
+
+    const warningStyles2 = {
+        color: "red",
+        marginTop: "-10px",
+        marginBottom: "10px",
+        width: "90%",
+        textAlign: "center"
     }
 
     const signupDiv = <div className="signup-form-container">
@@ -56,6 +75,7 @@ function Signup({userToDisplay}) {
                             {userExists ? <p style={warningStyles}>Username already exists, please try again!</p> : null}
                             <input type="password" autocomplete='off' placeholder="Password" onChange={handleSignupChange} name='password' value={signupForm.password} />
                             <input type="text" autocomplete='off' placeholder="Age 16+" onChange={handleSignupChange}  name='age' value={signupForm.age} />
+                            {validationError ? <p style={warningStyles2}>Username and Password must be present and age must be 16 years or older, please try again!</p> : null}
                             <button className="login-signup-submit">Sign Up</button>
                         </form>
                         <div className="login-signup-toggle" onClick={() => {navigate('/')}}>Login</div>

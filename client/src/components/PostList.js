@@ -1,15 +1,15 @@
 import Post from "./Post";
 
-function PostList({posts, user , handleDeletePost, handleUpdatePostComment}){
-
+function PostList({posts, user, handleDeletePost, handleUpdatePostComment}){
+    
     if (posts.length === 0){
         return (
             <strong>No posts for this Workout.</strong>
         )
     } else {
         return (
-            <ul>
-                {posts.map(post => (
+            <ul >
+                {posts.sort((a,b) => b.id - a.id).map(post => (
                     <Post 
                     key={post.id} 
                     post={post} 

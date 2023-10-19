@@ -15,7 +15,7 @@ function PostsMainPage({ posts, workouts, user, handleAddPost, selectedWorkout, 
         workouts={workouts}
         handleAddPost={handleAddPost}
       />
-      <PostList handleDeletePost={handleDeletePost} user={user} posts={posts} handleUpdatePostComment={handleUpdatePostComment}/>
+      <PostList handleDeletePost={handleDeletePost} user={user} posts={posts} handleUpdatePostComment={handleUpdatePostComment} />
     </div>
   )
 }

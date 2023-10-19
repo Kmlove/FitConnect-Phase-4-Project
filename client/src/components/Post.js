@@ -1,7 +1,7 @@
 import { useState } from "react"
 import EditPostForm from './EditPostForm.js'
 
-function Post({post, user, handleDeletePost, handleUpdatePostComment}){
+function Post({post, user, handleDeletePost, handleUpdatePostComment }){
     const [edit, setEdit] = useState(false)
 
     function handleDeleteClick(e){
@@ -37,7 +37,9 @@ function Post({post, user, handleDeletePost, handleUpdatePostComment}){
                     <strong className="post-list-header">{post.workout.name}</strong>
                 </div>
                 {post.comments}
+
                 {edit ? <EditPostForm handleEditClick={handleEditClick} post={post} handleUpdatePostComment={handleUpdatePostComment}/> : null}
+
             </div>
             {post.user_id === user.id ? postButtons : ""}
         </li>
