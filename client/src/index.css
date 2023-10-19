@@ -13,6 +13,21 @@
     width: 100%;
     background-image: linear-gradient(to right top, #86bec5, #90b9c7, #9bb5c4, #a4b0be, #aaadb6, #b0afb8, #b6b2ba, #bcb4bb, #cdbac1, #dfc0c2, #edc8bf, #f5d2bb);
   }
+
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background-color: #E7E7E7;
+    background: #E7E7E7;
+    border-radius: 10px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #EA6C36;
+    border-radius: 20px;
+  }
   
   #mainContainer {
     /* padding: 10px; */
