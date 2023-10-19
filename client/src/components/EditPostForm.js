@@ -30,7 +30,7 @@ function EditPostForm({post, handleUpdatePostComment, handleEditClick}){
     }
     
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="edit-post-form" onSubmit={handleSubmit}>
             <textarea className='edit-form-textarea' name='comments' type='text' value={comments} onChange={handleChange}></textarea>
             <input type="submit" className="form-button"/>
         </form>
