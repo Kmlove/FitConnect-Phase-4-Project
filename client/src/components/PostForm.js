@@ -7,7 +7,7 @@ function PostForm({workouts, user, handleAddPost}){
     }
     const [workoutFormData, setWorkoutFormData] = useState(initialValue)
 
-    if (user.length === 0){
+    if (user === null){
         return  <h3>Loading...</h3>
     } else{
         const {age, id, username } = user

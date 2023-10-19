@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function LoginSignup({userToDisplay}) {
-
+    const navigate = useNavigate()
     const [login, setLogin] = useState(true)
     const [loginForm, setLoginForm] = useState({
         username: '',
@@ -46,6 +47,7 @@ function LoginSignup({userToDisplay}) {
         .then((res) => res.json())
         .then((data) => userToDisplay(data))
         .catch((error) => console.error('User Data Not Found', error));
+        navigate('/home')
     }
 
     function handleSignupSubmit(e) {
@@ -59,6 +61,7 @@ function LoginSignup({userToDisplay}) {
         .then((res) => res.json())
         .then((data) => userToDisplay(data))
         .catch((error) => console.error('User Data Not Found', error));
+        navigate('/home')
     }
 
     function toggleLogin() {
