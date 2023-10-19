@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Main from "./components/Main"
 import LoginSignup from './components/LoginSignup';
-function App() {
+import {Route, Routes, Navigate} from "react-router-dom";
 
+function App() {
+  
   const [user, setUser] = useState('')
 
   useEffect(() => {
@@ -16,10 +18,15 @@ function App() {
     setUser(user)
   }
 
-
   return(
     <div className='App'>
-      {user && user.username ? <Main user={user} setUser={setUser} /> : <LoginSignup userToDisplay={setUser}/>}
+      <Routes>
+        <Route path='/login-signup' element={<LoginSignup userToDisplay={setUser}/>}/>
+        <Route path='/home' element={<Main user={user} setUser={setUser} />}/>
+      </Routes>
+      {/* <Navigate to="/" replace /> */}
+
+      {/* {user && user.username ? <Main user={user} setUser={setUser} /> : <LoginSignup userToDisplay={setUser}/>} */}
     </div>
   )
 }

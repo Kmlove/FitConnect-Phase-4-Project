@@ -22,7 +22,6 @@ function EditPostForm({post, handleUpdatePostComment}){
             }
         })
         .then(data => {
-            console.log('datafromEditPost', data)
             handleUpdatePostComment(data)
         })
         .catch(err => console.log(err))

@@ -3,11 +3,11 @@ import Profile from './Profile';
 import PostsMainPage from './PostsMainPage';
 import Workouts from './Workouts';
 import WorkoutForm from './WorkoutForm';
-
-
+import { useNavigate } from 'react-router-dom';
 
 function Main({user,setUser}) {
   // const [users, setUsers] = useState([]);
+  const navigate = useNavigate()
   const [posts, setPosts] = useState([]);
   const [workouts, setWorkouts] = useState([]);
   const [selectedWorkout, setSelectedWorkout] = useState(null);
@@ -74,6 +74,7 @@ function Main({user,setUser}) {
 
   const handleLogout = () => {
       setUser(null);
+      navigate('/login-signup')
   };
 
   return (
