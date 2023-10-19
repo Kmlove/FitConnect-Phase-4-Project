@@ -1,5 +1,6 @@
 import { useState } from "react";
 import WorkoutForm from './WorkoutForm';
+import "./Workouts.css"
 function Workouts({workouts, selectedWorkout, handleChangeSelectedWorkout, handleAddWorkout}) {
 
   const [addWorkout, setAddWorkout] = useState(false)

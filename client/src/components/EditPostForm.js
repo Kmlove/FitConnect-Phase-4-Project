@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./EditPostForm.css"
 
 function EditPostForm({post, handleUpdatePostComment}){
     const [comments, setComments] = useState(post.comments)
