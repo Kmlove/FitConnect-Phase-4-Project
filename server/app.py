@@ -9,26 +9,33 @@
 # # Local imports
 # from config import app, db, api
 
+from dotenv import load_dotenv
 from models import db, Workout, WorkoutPost, User
 from flask_restful import Api, Resource
 from flask_migrate import Migrate
-from flask import Flask, make_response, jsonify, request, session
+from flask import Flask, make_response, jsonify, request, session, render_template
 import os
 from flask_bcrypt import Bcrypt
 from faker import Faker
 
+load_dotenv()
 fake = Faker()
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-DATABASE = os.environ.get(
-    "DB_URI", f"sqlite:///{os.path.join(BASE_DIR, 'app.db')}")
+# BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+# DATABASE = os.environ.get(
+#     "DB_URI", f"sqlite:///{os.path.join(BASE_DIR, 'app.db')}")
 
+app = Flask(
+    __name__,
+    static_folder='../client/build',
+    static_url_path='',
+    template_folder='../client/build'
+)
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
-app.secret_key = b'Y\xf1Xz\x00\xad|eQ\x80t \xca\x1a\x10K'
+app.secret_key = os.environ.get('SECRET_KEY')
 migrate = Migrate(app, db)
 
 db.init_app(app)
@@ -39,8 +46,9 @@ api = Api(app)
 
 # Views go here!
 @app.route('/')
-def index():
-    return '<h1>Project Server</h1>'
+@app.route('/<int:id>')
+def index(id=0):
+    return render_template("index.html")
 
 class Workouts(Resource):
     def get(self):

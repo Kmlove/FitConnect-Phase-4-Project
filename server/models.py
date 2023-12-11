@@ -75,7 +75,7 @@ class User(db.Model, SerializerMixin):
 
     workout_posts = db.relationship('WorkoutPost', backref='user', cascade="all, delete-orphan")
 
-    serialize_rules = ('-workout_posts.user',)
+    serialize_rules = ('-workout_posts.user', '-_password_hash')
 
     @validates('username')
     def validate_username(self, key, username):
