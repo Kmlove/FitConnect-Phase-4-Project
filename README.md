@@ -6,6 +6,10 @@ FitConnect seamlessly blends fitness logging with a social media twist, allowing
 ## FitConnect Demo Video
 [FitConnect Demo Video](https://youtu.be/bBi1Qr0DJZE)
 
+## FitConnect Live Site
+[FitConnect Live Site](https://fitconnect-app.onrender.com/)
+- FitConnect is deployed on Render and can take 1-2 minutes to spin up.
+
 ## Stretch Goals / Feature Features
 - Be able to follow other users
 - Liking posts
