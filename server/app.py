@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 from models import db, Workout, WorkoutPost, User
 from flask_restful import Api, Resource
 from flask_migrate import Migrate
-from flask import Flask, make_response, jsonify, request, session
+from flask import Flask, make_response, jsonify, request, session, render_template
 import os
 from flask_bcrypt import Bcrypt
 from faker import Faker
@@ -25,7 +25,13 @@ fake = Faker()
 # DATABASE = os.environ.get(
 #     "DB_URI", f"sqlite:///{os.path.join(BASE_DIR, 'app.db')}")
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    static_folder='../client/build',
+    static_url_path='',
+    template_folder='../client/build'
+)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
@@ -40,8 +46,9 @@ api = Api(app)
 
 # Views go here!
 @app.route('/')
-def index():
-    return '<h1>Project Server</h1>'
+@app.route('/<int:id>')
+def index(id=0):
+    return render_template("index.html")
 
 class Workouts(Resource):
     def get(self):
