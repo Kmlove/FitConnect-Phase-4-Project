@@ -53,3 +53,5 @@ jspm_packages
 
 __pycache__
 
+# Environment variables
+.env
