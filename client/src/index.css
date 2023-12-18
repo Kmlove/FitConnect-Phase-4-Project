@@ -66,7 +66,7 @@
     border-radius: 10px;
     padding: 10px;
     height: 73vh;
-    overflow: hidden;
+    overflow-y: scroll;
     overflow-x: hidden;
     box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.4);
     position: relative;
@@ -75,7 +75,9 @@
     align-items: center;
   }
 
- 
+  #workoutsContainerDiv::-webkit-scrollbar-track {
+    margin-top: 95px;
+  }
 
   .workout-list-item {
     object-fit: contain;
@@ -350,6 +352,11 @@
     height: 70%;
     background-color: white;
     border-radius: 10px;
+
+  }
+
+  #workout-form-container::-webkit-scrollbar {
+    margin-left: 10px;
   }
 
   .workout-form-cols {
@@ -609,3 +616,29 @@
   .logout-button:hover {
     background-color: rgb(164, 164, 164);
   }
+
+
+/* Responsive Styles */
+@media screen and (max-width: 1300px) {
+  .signup-form-container,
+  .login-form-container {
+    width: 460px;
+    height: 350px;
+    bottom: 10px;
+  }
+
+  .signup-form {
+    position: relative;
+    top: 20px;
+  }
+
+  .login-signup-toggle {
+    margin-bottom: -20px;
+  }
+
+  #workout-form-container {
+    padding-top: 180px;
+    overflow-y: scroll;
+  }
+
+}
