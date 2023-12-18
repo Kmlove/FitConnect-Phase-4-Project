@@ -66,6 +66,7 @@ function Main({user,setUser}) {
   const handleLogout = () => {
       setUser(null);
       navigate('/')
+      document.querySelector('.Toastify__toast-container div[id="1"]').style.display = 'flex'
   };
 
   return (

@@ -39,6 +39,7 @@ function Login({userToDisplay}) {
         .then((data) => {
             userToDisplay(data)
             navigate('/home')
+            document.querySelector('.Toastify__toast-container div[id="1"]').style.display = 'none'
         })
         .catch((error) => console.error('User Data Not Found', error));
     }
