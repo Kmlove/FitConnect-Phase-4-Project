@@ -19,6 +19,13 @@ function Login({userToDisplay}) {
         })
     }
 
+    function handleHideToast(){
+        const toast = document.querySelector('.Toastify__toast-container div[id="1"]')
+        if(toast){
+            toast.style.display = 'none'
+        }
+    }
+
     function handleLoginSubmit(e) {
         e.preventDefault()
         fetch('/login', {
@@ -38,8 +45,8 @@ function Login({userToDisplay}) {
         })
         .then((data) => {
             userToDisplay(data)
-            navigate('/home')
-            document.querySelector('.Toastify__toast-container div[id="1"]').style.display = 'none'
+            handleHideToast()
+            navigate('/home')            
         })
         .catch((error) => console.error('User Data Not Found', error));
     }

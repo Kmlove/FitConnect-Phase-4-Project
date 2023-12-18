@@ -12,6 +12,13 @@ function Signup({userToDisplay}) {
     const [validationError, setValidationError] = useState(false)
     const [signupForm, setSignupForm] = useState(initialValue)
 
+    function handleHideToast(){
+        const toast = document.querySelector('.Toastify__toast-container div[id="1"]')
+        if(toast){
+            toast.style.display = 'none'
+        }
+    }
+
     function handleSignupChange(e) {
         const name = e.target.name
         const value = e.target.value
@@ -49,6 +56,7 @@ function Signup({userToDisplay}) {
         })
         .then((data) => {
             userToDisplay(data)
+            handleHideToast()
             navigate('/home')
         })
         .catch((error) => console.error('Error', error));

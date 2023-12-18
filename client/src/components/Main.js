@@ -23,15 +23,21 @@ function Main({user,setUser}) {
       .catch((error) => console.error('Error fetching posts:', error));
   }, []);
 
-    // Fetch workouts data
-    useEffect(() => {
-        fetch('/workouts')
-          .then((res) => res.json())
-          .then((data) => setWorkouts(data))
-          .catch((error) => console.error('Error fetching workouts:', error));
-      }, []);
-  
-  console.log(user)
+  // Fetch workouts data
+  useEffect(() => {
+      fetch('/workouts')
+        .then((res) => res.json())
+        .then((data) => setWorkouts(data))
+        .catch((error) => console.error('Error fetching workouts:', error));
+    }, []);
+
+  function handleDisplayToast(){
+    const toast = document.querySelector('.Toastify__toast-container div[id="1"]')
+    if(toast){
+        toast.style.display = 'flex'
+    }
+  }
+
   function handleAddPost(new_post){
     setPosts([...posts, new_post])
   }
@@ -65,8 +71,8 @@ function Main({user,setUser}) {
 
   const handleLogout = () => {
       setUser(null);
+      handleDisplayToast()
       navigate('/')
-      document.querySelector('.Toastify__toast-container div[id="1"]').style.display = 'flex'
   };
 
   return (
